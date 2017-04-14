@@ -103,7 +103,7 @@ object MainJvm extends App {
       .get("Range").asScala.head
       .drop("bytes=".length)
       .split("-").toList
-      .map(_.toInt)
+      .map(_.toLong)
     println(range)
     println(available)
 
@@ -114,7 +114,7 @@ object MainJvm extends App {
     println(from + " to " + to)
 
     // Read that file into a byte array
-    val length = (to - from).toInt + 1
+    val length = to - from + 1
     println(s"Reading length: $length, offset: $from")
 
     // val is = FileUtils.openInputStream(file)
